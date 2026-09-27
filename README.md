@@ -1,56 +1,33 @@
-# Welcome to your Expo app 👋
+# IT313 Components and JSX
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Problem
 
-## Get started
+The goal of this laboratory is to build a small Expo React Native student roster application. Each student is displayed using a reusable StudentCard component.
 
-1. Install dependencies
+The application displays the student's name, course, units enrolled, and a Full Load label when the student is marked as a full-load student.
 
-   ```bash
-   npm install
-   ```
+## Component Structure
 
-2. Start the app
+### StudentCard
 
-   ```bash
-   npx expo start
-   ```
+StudentCard is a reusable functional component. It receives the student's name, course, units, and isFullLoad value as props.
 
-In the output, you'll find options to open the app in a
+The props are destructured in the function parameter. JSX expressions are used to display the student information, and conditional rendering using && displays the Full Load label only when isFullLoad is true.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### StudentRoster
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+StudentRoster is the parent component that stores the student data and renders one StudentCard for each student.
 
-## Get a fresh project
+The students array is rendered using map(). Each StudentCard uses student.id as its key so that every rendered item has a stable identity.
 
-When you're ready, run:
+The total number of students is displayed using students.length.
+
+The application also includes a button that reverses the roster order to demonstrate why stable ID-based keys are preferred over array indexes.
+
+## How to Run
+
+Install the project dependencies:
 
 ```bash
-npm run reset-project
+npm install
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
